@@ -1,0 +1,112 @@
+﻿@model edusis.Models.student
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>edubis | Yeni Öğrenci Ekle</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body style="font-family:bahnschrift;">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+ 
+    <br />
+    <br />
+    <div class="col-12 justify-content-xl-center">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Yeni Öğrenci Ekle...</h4>
+                   
+                    <div class="heading-elements">
+                        <a href="~/Home/Index" class="btn btn-lg btn-danger">İptal</a>
+                        <a href="~/Home/Index" class="btn btn-lg btn-secondary">Ana Sayfa</a>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                        <form class="form-group">
+                            <div class="row">
+                                <div class="form-group col-md-6 mb-2">
+                                    @Html.EditorFor(model => model.ogrName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Öğrenci adı..." } })
+                                    @Html.ValidationMessageFor(model => model.ogrName, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" placeholder="Name" name="name">*@
+                                </div>
+                                <div class="form-group col-md-6 mb-2">
+                                    @* <input type="text" class="form-control" placeholder="Company" name="company">*@
+                                    @Html.EditorFor(model => model.ogrSurname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Öğrenci Soyadı..." } })
+                                    @Html.ValidationMessageFor(model => model.ogrSurname, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6 mb-2">
+                                    @Html.EditorFor(model => model.classID, new { htmlAttributes = new { @class = "form-control", @placeholder = "Sınıfı seç..." } })
+                                    @Html.ValidationMessageFor(model => model.classID, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-6 mb-2">
+                                    @Html.EditorFor(model => model.OgrTc, new { htmlAttributes = new { @class = "form-control", @placeholder = "TC Kimlik No..." } })
+                                    @Html.ValidationMessageFor(model => model.OgrTc, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6 mb-2">
+                                    @Html.EditorFor(model => model.ogrTel, new { htmlAttributes = new { @class = "form-control", @placeholder = "Telefon No..." } })
+                                    @Html.ValidationMessageFor(model => model.ogrTel, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-6 mb-2">
+                                    @Html.EditorFor(model => model.ogrMail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Mail Adresi...", @type = "email" } })
+                                    @Html.ValidationMessageFor(model => model.ogrMail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6 mb-2">
+                                    @Html.EditorFor(model => model.ogrSehir, new { htmlAttributes = new { @class = "form-control", @placeholder = "İkamet Adresi..." } })
+                                    @Html.ValidationMessageFor(model => model.ogrSehir, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-6 mb-2">
+                                    @Html.EditorFor(model => model.ogrServis, new { htmlAttributes = new { @class = "form-control", @placeholder = "Servis kullanıyor mu?..." } })
+                                    @Html.ValidationMessageFor(model => model.ogrServis, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6 mb-2">
+                                    @Html.EditorFor(model => model.ogrCins, new { htmlAttributes = new { @class = "form-control", @placeholder = "Cinsiyet...", @type = "tel" } })
+                                    @Html.ValidationMessageFor(model => model.ogrCins, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-6 mb-2">
+                                    <input type="submit" value="Kaydet" class="btn btn-success btn-lg" />
+                                    <input type="reset" value="Temizle" class="btn btn-danger btn-lg" />
+                                </div>
+                             </div>
+                               
+
+                                @*<div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Kaydet" class="btn btn-success" />
+                                    </div>
+                                </div>*@
+</form>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

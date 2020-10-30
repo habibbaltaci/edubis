@@ -1,0 +1,112 @@
+﻿@model edusis.Models.student
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>student</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ogrID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ogrID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ogrName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ogrName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ogrSurname)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ogrSurname)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.classID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.classID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OgrTc)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OgrTc)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ogrTel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ogrTel)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ogrMail)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ogrMail)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ogrSehir)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ogrSehir)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ogrServis)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ogrServis)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ogrCins)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ogrCins)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>
